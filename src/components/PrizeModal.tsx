@@ -20,7 +20,7 @@ export function PrizeModal({ prize, isLast, onClose }: PrizeModalProps) {
       />
       {isLast && (
         <p className="prize-final">
-          Все 12 призов найдены — квест пройден. Спасибо, что играли!
+          УРААААА!!! ТЫ ВСЕ НАШЛА!!!! СФОТКАЕШЬ МЕНЯ С МАШИНОЙ, ПОЖАЛУЙСТААААА🥹🙏
         </p>
       )}
       <button type="button" className="btn btn--ghost" onClick={onClose}>

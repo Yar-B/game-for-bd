@@ -18,7 +18,7 @@ type ActiveModal =
 
 type LoadingPhase = 'loading' | 'fading' | 'ready';
 
-const LOADING_MS = 3000;
+const LOADING_MS = 2000;
 const FADE_MS = 500;
 const RESET_HOLD_MS = 3000;
 
@@ -90,7 +90,7 @@ function App() {
             onPointerLeave={clearHoldTimer}
             onContextMenu={(e) => e.preventDefault()}
           >
-            Квест находок
+            ❤️Квест для любимки❤️
           </h1>
           <p className="app__progress">
             Найдено {foundCount} из {totalCount}

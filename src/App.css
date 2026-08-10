@@ -1,6 +1,6 @@
 .app {
-  min-height: 100dvh;
-  min-height: -webkit-fill-available;
+  height: 100dvh;
+  height: -webkit-fill-available;
   max-width: 480px;
   width: 100%;
   margin: 0 auto;
@@ -47,6 +47,10 @@
   flex: 1;
   min-height: 0;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {

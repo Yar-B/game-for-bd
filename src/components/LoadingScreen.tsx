@@ -12,7 +12,7 @@ export function LoadingScreen({ fadingOut = false }: LoadingScreenProps) {
       aria-live="polite"
     >
       <div className="loading-screen__ring" aria-hidden="true" />
-      <p className="loading-screen__text">Готовим квест…</p>
+      <p className="loading-screen__text">✨Загружаю призы...</p>
     </div>
   );
 }
