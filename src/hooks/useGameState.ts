@@ -81,7 +81,7 @@ export function useGameState() {
         return { success: false, error: 'Код должен состоять из 6 цифр' };
       }
       if (!codes.includes(code)) {
-        return { success: false, error: 'Такого кода нет — проверь и попробуй ещё раз' };
+        return { success: false, error: 'Малыш, я такой код не давал🤨' };
       }
       const nextPrizeIndex = prizes.findIndex((p) => p.status === PrizeStatus.NOT_OPEN);
       if (nextPrizeIndex === -1) {

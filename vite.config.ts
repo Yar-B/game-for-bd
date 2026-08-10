@@ -8,6 +8,6 @@ import react from '@vitejs/plugin-react';
 // Если репозиторий называется иначе — замени строку ниже. Если сайт будет
 // жить в корне домена (user.github.io без подпапки) — поставь base: '/'.
 export default defineConfig({
-  base: '/holiday-quest/',
+  base: '/game-for-bd/',
   plugins: [react()],
 });

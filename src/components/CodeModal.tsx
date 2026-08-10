@@ -15,7 +15,7 @@ export function CodeModal({ onClose, onSubmit }: CodeModalProps) {
   const attempt = (code: string) => {
     const result = onSubmit(code);
     if (!result.success) {
-      setError(result.error ?? 'Такого кода нет — проверь и попробуй ещё раз');
+      setError(result.error ?? 'Малыш, я такой код не давал🤨');
       setValue('');
       requestAnimationFrame(() => inputRef.current?.focus());
     }

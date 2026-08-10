@@ -46,7 +46,15 @@
 
 ## Установка и запуск
 
+Нужен **Node.js 18 или новее** (лучше 20+) — Vite 5 не запускается на Node
+16 и старше: вместо понятной ошибки версия падает с
+`TypeError: crypto$2.getRandomValues is not a function` при старте
+`npm run dev`. Если пользуешься `nvm`, в проекте есть файл `.nvmrc`, просто
+выполни `nvm use` в папке проекта (или `nvm install`, если такой версии ещё
+нет) перед `npm install`.
+
 ```bash
+nvm use   # если используешь nvm — подхватит версию из .nvmrc
 npm install
 npm run dev
 ```
