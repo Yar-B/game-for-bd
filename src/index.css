@@ -1,0 +1,222 @@
+:root {
+  --bg-deep: #1a1230;
+  --bg-mid: #2a1c46;
+  --surface: #241a3d;
+  --card-back: #2f2150;
+  --card-closed-a: #362754;
+  --card-closed-b: #24183f;
+  --card-complete-bg: #17112b;
+  --accent-gold: #f2c675;
+  --accent-gold-strong: #c8933a;
+  --accent-rose: #ff8fa3;
+  --text-primary: #f4efe6;
+  --text-muted: rgba(244, 239, 230, 0.65);
+
+  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 30% 15%, var(--bg-mid), var(--bg-deep) 65%);
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+button {
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- Модалки (общие для CodeModal / MysteryModal / ConfirmPopup / PrizeModal) ---------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 6, 20, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+    max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  z-index: 1100;
+  animation: overlay-in 0.25s ease;
+}
+
+.modal-dialog {
+  background: var(--surface);
+  border: 1px solid rgba(242, 198, 117, 0.15);
+  border-radius: 20px;
+  padding: 24px 20px;
+  width: 100%;
+  max-width: 360px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: dialog-in 0.3s ease;
+}
+
+.modal-dialog.prize-modal {
+  max-width: 420px;
+  text-align: center;
+}
+
+.modal-dialog.confirm-popup {
+  max-width: 300px;
+  text-align: center;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  margin: 0 0 10px;
+  color: var(--accent-gold);
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.modal-hint {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 0 16px;
+}
+
+.modal-error {
+  color: var(--accent-rose);
+  font-size: 0.9rem;
+  margin: -6px 0 14px;
+}
+
+.mystery-text {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  margin: 0 0 22px;
+  white-space: pre-wrap;
+}
+
+.code-input {
+  display: block;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  letter-spacing: 0.5em;
+  text-align: center;
+  padding: 14px 0 14px 0.5em;
+  border-radius: 12px;
+  border: 2px solid rgba(242, 198, 117, 0.35);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  min-height: 44px;
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.btn {
+  display: block;
+  min-height: 48px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 20px;
+}
+
+.btn--primary {
+  background: var(--accent-gold);
+  color: #241536;
+}
+
+.btn--primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-top: 10px;
+}
+
+.confirm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prize-image {
+  display: block;
+  width: 100%;
+  max-height: 55vh;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.prize-final {
+  color: var(--accent-gold);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
