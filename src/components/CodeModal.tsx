@@ -30,16 +30,12 @@ export function CodeModal({ onClose, onSubmit }: CodeModalProps) {
     if (digitsOnly.length === 6) attempt(digitsOnly);
   };
 
-  const handleSubmitClick = () => {
-    if (value.length === 6) attempt(value);
-  };
-
   return (
     <Modal onClose={onClose} labelledBy="code-modal-title">
       <h2 id="code-modal-title" className="modal-title">
         Введи код находки
       </h2>
-      <p className="modal-hint">Код спрятан где-то рядом — впиши все 6 цифр.</p>
+      <p className="modal-hint">Капибариус выдал код — впиши все 6 цифр.</p>
       <input
         ref={inputRef}
         type="text"
@@ -58,14 +54,6 @@ export function CodeModal({ onClose, onSubmit }: CodeModalProps) {
           {error}
         </p>
       )}
-      <button
-        type="button"
-        className="btn btn--primary"
-        disabled={value.length < 6}
-        onClick={handleSubmitClick}
-      >
-        Открыть
-      </button>
     </Modal>
   );
 }

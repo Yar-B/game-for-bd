@@ -1,10 +1,34 @@
+import { useEffect, useState } from 'react';
+import { loadingImagePaths } from '../data/initialData';
 import './LoadingScreen.css';
 
 interface LoadingScreenProps {
   fadingOut?: boolean;
 }
 
+function pickRandomImagePath(): string | null {
+  if (loadingImagePaths.length === 0) return null;
+  const index = Math.floor(Math.random() * loadingImagePaths.length);
+  return loadingImagePaths[index];
+}
+
 export function LoadingScreen({ fadingOut = false }: LoadingScreenProps) {
+  // Картинка выбирается один раз при появлении экрана (а не при каждом
+  // ре-рендере), иначе она бы менялась прямо во время затухания.
+  const [imagePath] = useState(pickRandomImagePath);
+  const [imageReady, setImageReady] = useState(false);
+
+  // Предзагружаем картинку через Image() и показываем (с анимацией выезда)
+  // только когда она реально уже в кэше браузера — иначе на медленной сети
+  // можно на секунду увидеть пустое место или битую иконку вместо неё.
+  useEffect(() => {
+    if (!imagePath) return;
+    const img = new Image();
+    img.onload = () => setImageReady(true);
+    img.src = `${import.meta.env.BASE_URL}${imagePath}`;
+    if (img.complete) setImageReady(true);
+  }, [imagePath]);
+
   return (
     <div
       className={`loading-screen${fadingOut ? ' loading-screen--fade-out' : ''}`}
@@ -13,6 +37,13 @@ export function LoadingScreen({ fadingOut = false }: LoadingScreenProps) {
     >
       <div className="loading-screen__ring" aria-hidden="true" />
       <p className="loading-screen__text">✨Загружаю призы...</p>
+      {imagePath && imageReady && (
+        <img
+          src={`${import.meta.env.BASE_URL}${imagePath}`}
+          alt=""
+          className="loading-screen__image"
+        />
+      )}
     </div>
   );
 }

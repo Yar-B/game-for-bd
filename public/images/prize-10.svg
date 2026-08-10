@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Приз-заглушка номер 10">
-  <rect width="400" height="400" fill="#2f2150"/>
-  <rect x="16" y="16" width="368" height="368" fill="none" stroke="#f2c675" stroke-width="4" stroke-dasharray="10 8"/>
-  <text x="200" y="225" font-family="Georgia, serif" font-size="120" fill="#f2c675" text-anchor="middle">10</text>
-  <text x="200" y="272" font-family="sans-serif" font-size="18" fill="#f4efe6" text-anchor="middle">приз-заглушка</text>
-</svg>
