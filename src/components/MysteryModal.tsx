@@ -16,11 +16,11 @@ export function MysteryModal({ prize, onClose, onConfirmFound }: MysteryModalPro
     <>
       <Modal onClose={onClose} labelledBy="mystery-modal-title">
         <h2 id="mystery-modal-title" className="modal-title">
-          Загадка №{prize.id}
+          Загадка🪄
         </h2>
         <p className="mystery-text">{prize.mysteryText}</p>
         <button type="button" className="btn btn--primary" onClick={() => setConfirming(true)}>
-          Нашёл!
+          Нашла!
         </button>
       </Modal>
       {confirming && (

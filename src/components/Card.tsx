@@ -59,7 +59,7 @@ export function Card({ cardId, prize, onClick }: CardProps) {
             <span className="card__label">загадка ждёт</span>
           </>
         ) : (
-          <span className="card__number">{cardId}</span>
+          <span className="card__number">?</span>
         )}
       </span>
     </button>
